@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import Divider from "@material-ui/core/Divider";
 import SendIcon from "@material-ui/icons/Send";
+import { db } from "../../firebase";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,9 +58,22 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (firstName && lastName && email) {
-      console.log(firstName, lastName, email, message);
-    }
+    db.collection("contact")
+      .add({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        message: message,
+      })
+      .then(() => alert("Message has been sent!"))
+      .catch((err) => {
+        alert(err);
+      });
+
+    setFirstName("");
+    setLastName("");
+    setMessage("");
+    setEmail("");
   };
 
   return (

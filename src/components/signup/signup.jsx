@@ -16,6 +16,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { db } from "../../firebase";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -59,9 +60,22 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (firstName && lastName && email) {
-      console.log(firstName, lastName, email, gradStudent);
-    }
+    db.collection("signup")
+      .add({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        gradStudent: gradStudent,
+      })
+      .then(() => alert("You have successfully signed up"))
+      .catch((err) => {
+        alert(err);
+      });
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setGradStudent("");
   };
 
   return (
