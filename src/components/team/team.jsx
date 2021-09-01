@@ -1,259 +1,151 @@
 import React from "react";
-import cx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import TextInfoContent from "@mui-treasury/components/content/textInfo";
-import { useFourThreeCardMediaStyles } from "@mui-treasury/styles/cardMedia/fourThree";
-import { useN04TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n04";
-import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over";
-import Archit from "../../images/LinkedIn.jpeg";
+import CardMedia from "@material-ui/core/CardMedia";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
+import Avatar from "@material-ui/core/Avatar";
+import Divider from "@material-ui/core/Divider";
+import Archit from "../../images/Archit.jpeg";
 import Sidd from "../../images/Sidd.jpeg";
 import Khalid from "../../images/Khalid.jpeg";
 import David from "../../images/David.jpeg";
 import Maria from "../../images/Maria.jpeg";
 import Adam from "../../images/Adam.jpeg";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 343,
-    maxHeight: "60vh",
+  icon: {
     margin: "auto",
-    borderRadius: 12,
-    padding: 12,
+    marginBottom: theme.spacing(1),
+    backgroundColor: theme.palette.primary.main,
   },
-  media: {
-    borderRadius: 6,
-    height: 350,
-    paddingBottom: 0,
+  team: {
+    backgroundColor: theme.palette.background.main,
+    padding: theme.spacing(4, 0, 4),
   },
-  paper: {
-    padding: theme.spacing(2),
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardContent: {
+    flexGrow: 1,
     textAlign: "center",
-    color: theme.palette.text.secondary,
-    boxShadow: "none",
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
   },
-  title: {
-    width: "100vw",
-    boxShadow: "none",
-    textAlign: "center",
-    paddingTop: "50px",
+  divider: {
+    width: "16%",
+    margin: "auto",
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
-export const Team = React.memo(function MusicCard() {
-  const styles = useStyles();
-  const mediaStyles = useFourThreeCardMediaStyles();
-  const textCardContentStyles = useN04TextInfoContentStyles();
-  const shadowStyles = useOverShadowStyles({ inactive: true });
-  return (
-    <Grid container spacing={3}>
-      <Paper className={styles.title}>
-        <Typography component="h1" variant="h4" gutterBottom>
-          Team
-        </Typography>
-      </Paper>
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={Khalid}
-              title="Khalid"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"Khalid Khan"}
-                overline={"VP of Operations"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/khalidayazkhan/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={Sidd}
-              title="Sidd"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"Sidd Pant"}
-                overline={"President"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/sidd-pant/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
+const cards = [
+  {
+    name: "Sidd Pant",
+    heading: "President",
+    photo: Sidd,
+    link: "https://www.linkedin.com/in/sidd-pant/",
+  },
+  {
+    name: "Khalid Khan",
+    heading: "VP of Operations",
+    photo: Khalid,
+    link: "https://www.linkedin.com/in/khalidayazkhan/",
+  },
+  {
+    name: "Archit Manek",
+    heading: "VP of Marketing",
+    photo: Archit,
+    link: "https://www.linkedin.com/in/architmanek/",
+  },
+  {
+    name: "Adam Foley",
+    heading: "Director of Finance",
+    photo: Adam,
+    link: "https://www.linkedin.com/in/afoley1/",
+  },
+  {
+    name: "David Jamrog",
+    heading: "Director of Learning Initiatives",
+    photo: David,
+    link: "https://www.linkedin.com/in/david-jamrog-139a9387/",
+  },
+  {
+    name: "Maria Georgieva",
+    heading: "Director of Content",
+    photo: Maria,
+    link: "https://www.linkedin.com/in/maria-georgieva/",
+  },
+];
 
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={Archit}
-              title="Archit"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"Archit Manek"}
-                overline={"VP of Marketing"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/architmanek/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={David}
-              title="David"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"David Jamrog"}
-                overline={"Director of Learning Initiatives"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/david-jamrog-139a9387/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={Maria}
-              title="Maria"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"Maria Georgieva"}
-                overline={"Director of Content"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/maria-georgieva/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} sm={4}>
-        <Paper className={styles.paper}>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardMedia
-              className={cx(styles.media, mediaStyles.root)}
-              src={Adam}
-              title="Adam"
-              component="img"
-            />
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                heading={"Adam Foley"}
-                overline={"Director of Finance"}
-                body={
-                  <LinkedInIcon
-                    color="primary"
-                    fontSize="large"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/afoley1/",
-                        "_blank"
-                      );
-                    }}
-                    cursor="pointer"
-                  ></LinkedInIcon>
-                }
-              />
-            </CardContent>
-          </Card>
-        </Paper>
-      </Grid>
-    </Grid>
+export default function Album() {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <main>
+        {/* Hero unit */}
+        <div className={classes.team}>
+          <Container maxWidth="sm">
+            <Avatar className={classes.icon}>
+              <PeopleOutlineIcon />
+            </Avatar>
+            <Typography
+              component="h1"
+              variant="h4"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Team
+            </Typography>
+            <Divider variant="middle" className={classes.divider} />
+          </Container>
+        </div>
+        <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    src={card.photo}
+                    title="Image title"
+                    component="img"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {card.name}
+                    </Typography>
+                    <Typography>{card.heading}</Typography>
+                  </CardContent>
+                  <CardActions style={{ margin: "auto" }}>
+                    <LinkedInIcon
+                      color="primary"
+                      fontSize="large"
+                      onClick={() => {
+                        window.open(card.link, "_blank");
+                      }}
+                      cursor="pointer"
+                    ></LinkedInIcon>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
+    </React.Fragment>
   );
-});
-export default Team;
+}
