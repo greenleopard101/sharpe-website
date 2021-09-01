@@ -24,6 +24,9 @@ function App() {
       <div>
         <Header sections={sections} />
         <Switch>
+          <Route exact path="/">
+            <About />
+          </Route>
           <Route exact path="/about">
             <About />
           </Route>

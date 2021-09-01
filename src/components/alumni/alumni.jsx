@@ -11,6 +11,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { db } from "../../firebase";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -56,12 +57,26 @@ export default function Alumni() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (month.length !== 2 && year.length !== 4) {
-    }
+    db.collection("alumni")
+      .add({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        month: month,
+        year: year,
+        major: major,
+      })
+      .then(() => alert("Message has been sent!"))
+      .catch((err) => {
+        alert(err);
+      });
 
-    if (firstName && lastName && email) {
-      console.log(firstName, lastName, email, month, year, major);
-    }
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMajor("");
+    setMonth("");
+    setYear("");
   };
 
   return (
