@@ -20,20 +20,10 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     fontSize: "28px",
   },
+  text: {
+    color: "#FFFFFF",
+  },
 }));
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="#">
-        Sharpe
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 export default function Footer() {
   const classes = useStyles();
@@ -55,7 +45,14 @@ export default function Footer() {
             onClick={() => (window.location = "mailto:neusharpe@gmail.com")}
           />
         </Typography>
-        <Copyright />
+        <Typography variant="body2" align="center" className={classes.text}>
+          {"Copyright © "}
+          <Link color="inherit" href="#">
+            Sharpe
+          </Link>{" "}
+          {new Date().getFullYear()}
+          {"."}
+        </Typography>
       </Container>
     </footer>
   );
