@@ -7,6 +7,7 @@ import Footer from "./components/footer/footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contact from "./components/contact/contact";
 import Alumni from "./components/alumni/alumni";
+import Events from "./components/events/Events";
 
 const sections = [
   { title: "About", url: "/about" },
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/team">
             <Team />
+          </Route>
+          <Route exact path="/events">
+            <Events />
           </Route>
           <Route exact path="/signup">
             <Signup />
