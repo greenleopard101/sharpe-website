@@ -51,22 +51,16 @@ const useStyles = makeStyles((theme) => ({
 
 const cards = [
   {
-    name: "Sidd Pant",
-    heading: "President",
-    photo: Sidd,
-    link: "https://www.linkedin.com/in/sidd-pant/",
-  },
-  {
     name: "Khalid Khan",
-    heading: "VP of Operations",
+    heading: "President",
     photo: Khalid,
     link: "https://www.linkedin.com/in/khalidayazkhan/",
   },
   {
-    name: "Archit Manek",
-    heading: "VP of Marketing",
-    photo: Archit,
-    link: "https://www.linkedin.com/in/architmanek/",
+    name: "Maria Georgieva",
+    heading: "Vice President",
+    photo: Maria,
+    link: "https://www.linkedin.com/in/maria-georgieva/",
   },
   {
     name: "Adam Foley",

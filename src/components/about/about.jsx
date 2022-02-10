@@ -85,7 +85,7 @@ export default function About() {
         >
           Sign Up
         </Button>
-        <YoutubeEmbed />
+        <YoutubeEmbed  embedId={}/>
       </div>
     </Container>
   );
